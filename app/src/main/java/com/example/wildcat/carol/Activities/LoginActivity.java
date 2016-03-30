@@ -1,8 +1,10 @@
-package com.example.wildcat.carol;
+package com.example.wildcat.carol.Activities;
 
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.example.wildcat.carol.R;
 
 import roboguice.activity.RoboActivity;
 import roboguice.inject.ContentView;
