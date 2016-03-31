@@ -15,24 +15,17 @@ import android.view.MenuItem;
 
 import com.example.wildcat.carol.R;
 
-import roboguice.inject.ContentView;
-import roboguice.inject.InjectView;
-
-@ContentView(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-    @InjectView(R.id.toolbar) Toolbar toolbar;
-    @InjectView(R.id.fab) FloatingActionButton fab;
-    @InjectView(R.id.drawer_layout) DrawerLayout drawer;
-    @InjectView(R.id.nav_view) NavigationView navigationView;
-    @InjectView(R.id.nav_view) NavigationView nav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,11 +34,13 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
@@ -101,6 +96,7 @@ public class MainActivity extends AppCompatActivity
 
         }
 
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
