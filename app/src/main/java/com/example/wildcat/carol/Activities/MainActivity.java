@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity
     @InjectView(R.id.fab) FloatingActionButton fab;
     @InjectView(R.id.drawer_layout) DrawerLayout drawer;
     @InjectView(R.id.nav_view) NavigationView navigationView;
+    @InjectView(R.id.nav_view) NavigationView nav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
