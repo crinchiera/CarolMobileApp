@@ -19,7 +19,7 @@
             android:icon="@drawable/ic_menu_messages"
             android:title="Messages" />
         <item
-            android:id="@+id/nav_progres"
+            android:id="@+id/nav_progress"
             android:icon="@drawable/ic_menu_progress"
             android:title="Progress" />
         <item
