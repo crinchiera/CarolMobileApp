@@ -18,7 +18,7 @@
         android:layout_height="180dp"
         android:id="@+id/profileIcon"
         android:layout_marginTop="33dp"
-        android:src="@drawable/profile_image"
+        android:src="@drawable/michael_icon"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 

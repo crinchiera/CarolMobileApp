@@ -16,6 +16,6 @@
         android:id="@+id/imageView"
         android:layout_width="50dp"
         android:layout_height="76dp"
-        android:src="@drawable/carol_image" />
+        android:src="@drawable/we_clean_image" />
 
 </LinearLayout>

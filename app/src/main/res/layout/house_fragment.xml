@@ -3,23 +3,66 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="30dp"
+    android:layout_marginRight="-13dp"
     android:id="@+id/house_layout">
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
+        android:layout_height="match_parent">
 
-    </LinearLayout>
+        <ImageView
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:id="@+id/imageView2"
+            android:src="@drawable/michael_icon"
+            android:layout_marginRight="42dp"
+            android:layout_marginEnd="42dp"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/imageView3"
+            android:layout_toStartOf="@+id/imageView3"
+            android:layout_marginTop="42dp"
+            android:layout_marginLeft="25dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="This is the House Fragment"
-        android:id="@+id/textView3"
-        android:layout_marginTop="200dp"
-        android:layout_marginLeft="50dp" />
+        <ImageView
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:id="@+id/imageView3"
+            android:src="@drawable/jeremy_icon"
+            android:layout_marginRight="25dp"
+            android:layout_alignTop="@+id/imageView2"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="47dp" />
+
+        <ImageView
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:id="@+id/imageView4"
+            android:src="@drawable/jeff_icon"
+            android:layout_alignTop="@+id/imageView5"
+            android:layout_alignLeft="@+id/imageView3"
+            android:layout_alignStart="@+id/imageView3" />
+
+        <ImageView
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:id="@+id/imageView5"
+            android:src="@drawable/matt_icon"
+            android:layout_centerVertical="true"
+            android:layout_alignLeft="@+id/imageView2"
+            android:layout_alignStart="@+id/imageView2" />
+
+        <ImageView
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:id="@+id/imageView6"
+            android:src="@drawable/danny_icon"
+            android:layout_below="@+id/imageView5"
+            android:layout_alignLeft="@+id/imageView5"
+            android:layout_alignStart="@+id/imageView5"
+            android:layout_marginTop="33dp" />
+
+    </RelativeLayout>
 
 </LinearLayout>
