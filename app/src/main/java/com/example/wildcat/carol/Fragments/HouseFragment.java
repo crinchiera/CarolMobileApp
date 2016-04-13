@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import com.example.wildcat.carol.R;
 
 import roboguice.fragment.RoboFragment;
+import roboguice.inject.ContentView;
 
 /**
  * Created by Wildcat on 4/1/2016.
