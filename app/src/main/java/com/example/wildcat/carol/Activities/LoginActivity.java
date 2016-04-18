@@ -1,13 +1,17 @@
 package com.example.wildcat.carol.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 
 import com.example.wildcat.carol.R;
 
 import roboguice.activity.RoboActivity;
 import roboguice.inject.ContentView;
+import roboguice.inject.InjectView;
 
 @ContentView(R.layout.activity_login)
 public class LoginActivity extends RoboActivity {
@@ -37,5 +41,20 @@ public class LoginActivity extends RoboActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @InjectView(R.id.email)
+    EditText username;
+    @InjectView(R.id.password)
+    EditText password;
+
+    public void login(View view) {
+        if (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            //correcct password
+        } else {
+            //wrong password
+        }
     }
 }
