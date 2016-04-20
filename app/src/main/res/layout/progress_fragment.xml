@@ -11,4 +11,10 @@
         android:id="@+id/textView6"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="200dp" />
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/chart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </LinearLayout>
