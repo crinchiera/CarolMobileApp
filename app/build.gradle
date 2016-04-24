@@ -28,4 +28,5 @@ dependencies {
     compile 'org.roboguice:roboguice:3.0.1'
     compile 'com.android.support:support-v4:23.2.1'
     compile 'com.github.zzz40500:AndroidSweetSheet:1.1.0'
+    compile 'com.google.code.gson:gson:2.6.2'
 }

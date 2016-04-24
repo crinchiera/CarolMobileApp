@@ -14,23 +14,23 @@
         <ImageView
             android:layout_width="125dp"
             android:layout_height="125dp"
-            android:id="@+id/imageView2"
+            android:id="@+id/michael"
             android:src="@drawable/michael_icon"
             android:layout_marginRight="42dp"
             android:layout_marginEnd="42dp"
             android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@+id/imageView3"
-            android:layout_toStartOf="@+id/imageView3"
+            android:layout_toLeftOf="@+id/jeremy"
+            android:layout_toStartOf="@+id/jeremy"
             android:layout_marginTop="42dp"
             android:layout_marginLeft="25dp" />
 
         <ImageView
             android:layout_width="125dp"
             android:layout_height="125dp"
-            android:id="@+id/imageView3"
+            android:id="@+id/jeremy"
             android:src="@drawable/jeremy_icon"
             android:layout_marginRight="25dp"
-            android:layout_alignTop="@+id/imageView2"
+            android:layout_alignTop="@+id/michael"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="47dp" />
@@ -38,29 +38,29 @@
         <ImageView
             android:layout_width="125dp"
             android:layout_height="125dp"
-            android:id="@+id/imageView4"
+            android:id="@+id/jeff"
             android:src="@drawable/jeff_icon"
-            android:layout_alignTop="@+id/imageView5"
-            android:layout_alignLeft="@+id/imageView3"
-            android:layout_alignStart="@+id/imageView3" />
+            android:layout_alignTop="@+id/matt"
+            android:layout_alignLeft="@+id/jeremy"
+            android:layout_alignStart="@+id/jeremy" />
 
         <ImageView
             android:layout_width="125dp"
             android:layout_height="125dp"
-            android:id="@+id/imageView5"
+            android:id="@+id/matt"
             android:src="@drawable/matt_icon"
             android:layout_centerVertical="true"
-            android:layout_alignLeft="@+id/imageView2"
-            android:layout_alignStart="@+id/imageView2" />
+            android:layout_alignLeft="@+id/michael"
+            android:layout_alignStart="@+id/michael" />
 
         <ImageView
             android:layout_width="125dp"
             android:layout_height="125dp"
-            android:id="@+id/imageView6"
+            android:id="@+id/danny"
             android:src="@drawable/danny_icon"
-            android:layout_below="@+id/imageView5"
-            android:layout_alignLeft="@+id/imageView5"
-            android:layout_alignStart="@+id/imageView5"
+            android:layout_below="@+id/matt"
+            android:layout_alignLeft="@+id/matt"
+            android:layout_alignStart="@+id/matt"
             android:layout_marginTop="33dp" />
 
     </RelativeLayout>

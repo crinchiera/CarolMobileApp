@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.wildcat.carol.R;
 
@@ -55,6 +56,8 @@ public class LoginActivity extends RoboActivity {
             //correcct password
         } else {
             //wrong password
+            Toast.makeText(this, "Login Credentials Not Recognized",
+                    Toast.LENGTH_LONG).show();
         }
     }
 }

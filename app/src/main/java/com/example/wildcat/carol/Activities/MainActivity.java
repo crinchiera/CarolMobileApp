@@ -3,9 +3,12 @@ package com.example.wildcat.carol.Activities;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,14 +23,25 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
+import com.example.wildcat.carol.Fragments.ChoreBucketFragment;
 import com.example.wildcat.carol.Fragments.ChoresFragment;
+import com.example.wildcat.carol.Fragments.ChoresFragment2;
 import com.example.wildcat.carol.Fragments.GroceriesFragment;
 import com.example.wildcat.carol.Fragments.HouseFragment;
 import com.example.wildcat.carol.Fragments.MessagesFragment;
 import com.example.wildcat.carol.Fragments.ProgressFragment;
 import com.example.wildcat.carol.Fragments.SettingsFragment;
+import com.example.wildcat.carol.Models.UserProfile;
 import com.example.wildcat.carol.R;
+import com.mingle.entity.MenuEntity;
+import com.mingle.sweetpick.BlurEffect;
+import com.mingle.sweetpick.RecyclerViewDelegate;
+import com.mingle.sweetpick.SweetSheet;
+
+import java.util.ArrayList;
 
 import roboguice.activity.RoboActionBarActivity;
 import roboguice.fragment.support.SupportFragmentUtil;
@@ -41,6 +55,7 @@ public class MainActivity extends RoboActionBarActivity
     @InjectView(R.id.fab) FloatingActionButton fab;
     @InjectView(R.id.drawer_layout) DrawerLayout drawer;
     @InjectView(R.id.nav_view) NavigationView navigationView;
+    @InjectView(R.id.app_bar) CoordinatorLayout rl;
 
 
     @Override
@@ -51,7 +66,7 @@ public class MainActivity extends RoboActionBarActivity
 
 
         android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction().addToBackStack("choresFragment");
         fragmentTransaction.replace(R.id.frame_layout, new ChoresFragment());
         fragmentTransaction.commit();
 
@@ -59,8 +74,10 @@ public class MainActivity extends RoboActionBarActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fm.beginTransaction().addToBackStack("choresFragment");
+                fragmentTransaction.replace(R.id.frame_layout, new ChoreBucketFragment());
+                fragmentTransaction.commit();
             }
         });
 
@@ -70,6 +87,7 @@ public class MainActivity extends RoboActionBarActivity
         toggle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
+
 
     }
 
@@ -82,6 +100,7 @@ public class MainActivity extends RoboActionBarActivity
             super.onBackPressed();
         }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -101,6 +120,8 @@ public class MainActivity extends RoboActionBarActivity
         if (id == R.id.action_settings) {
             return true;
         }
+
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -139,11 +160,20 @@ public class MainActivity extends RoboActionBarActivity
 
 
         android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction().addToBackStack("fragment");
         fragmentTransaction.replace(R.id.frame_layout, fragment);
         fragmentTransaction.commit();
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
+
+
+
+
 }
+
+
