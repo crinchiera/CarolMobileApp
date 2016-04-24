@@ -42,6 +42,7 @@ import com.mingle.sweetpick.RecyclerViewDelegate;
 import com.mingle.sweetpick.SweetSheet;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 import roboguice.activity.RoboActionBarActivity;
 import roboguice.fragment.support.SupportFragmentUtil;
@@ -51,6 +52,9 @@ import roboguice.inject.InjectView;
 public class MainActivity extends RoboActionBarActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    public static UserProfile michael, danny, jeff, matt, jeremy;
+    public static Hashtable bucket = new Hashtable();
+
     @InjectView(R.id.toolbar) Toolbar toolbar;
     @InjectView(R.id.fab) FloatingActionButton fab;
     @InjectView(R.id.drawer_layout) DrawerLayout drawer;
@@ -58,11 +62,51 @@ public class MainActivity extends RoboActionBarActivity
     @InjectView(R.id.app_bar) CoordinatorLayout rl;
 
 
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setSupportActionBar(toolbar);
+
+        michael = new UserProfile();
+        danny = new UserProfile();
+        jeff = new UserProfile();
+        matt = new UserProfile();
+        jeremy = new UserProfile();
+
+        michael.toDoList = new Hashtable();
+        danny.toDoList = new Hashtable();
+        jeff.toDoList = new Hashtable();
+        matt.toDoList = new Hashtable();
+        jeremy.toDoList = new Hashtable();
+
+        michael.completedList = new Hashtable();
+        jeff.completedList = new Hashtable();
+        jeremy.completedList = new Hashtable();
+        danny.completedList = new Hashtable();
+        matt.completedList = new Hashtable();
+
+        michael.toDO = 0;
+        matt.toDO = 0;
+        jeff.toDO = 0;
+        jeremy.toDO = 0;
+        danny.toDO = 0;
+
+        michael.coins = 0;
+        matt.coins = 10;
+        jeff.coins = 24;
+        jeremy.coins = 15;
+        danny.coins = 0;
+
+        bucket.put("Take Out Trash", "Take Out Trash");
+        bucket.put("Clean Dishes", "Clean Dishes");
+        bucket.put("Clean Living Room", "Clean Living Room");
+        bucket.put("Clean Kitchen", "Clean Kitchen");
+        bucket.put("Clean Bathroom", "Clean Bathroom");
+
+
 
 
         android.support.v4.app.FragmentManager fm = getSupportFragmentManager();

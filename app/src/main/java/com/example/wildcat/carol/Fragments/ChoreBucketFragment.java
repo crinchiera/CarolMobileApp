@@ -11,11 +11,16 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.wildcat.carol.Activities.MainActivity;
+import com.example.wildcat.carol.Models.UserProfile;
 import com.example.wildcat.carol.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
+
+import javax.inject.Inject;
 
 import roboguice.fragment.RoboFragment;
 
@@ -52,11 +57,11 @@ public class ChoreBucketFragment extends RoboFragment {
         // set a onclick listener for when the button gets clicked
         listview = (ListView) getActivity().findViewById(R.id.list);
 
-        String[] values = new String[] { "Clean Dishes", "Take Out Trash", "Clean Bathroom", "Clean Living Room"  };
 
-        final ArrayList<String> list = new ArrayList<String>();
-        for (int i = 0; i < values.length; ++i) {
-            list.add(values[i]);
+        final ArrayList<Object> list = new ArrayList<Object>();
+        Set<String> keys = MainActivity.bucket.keySet();
+        for(String key: keys){
+            list.add(MainActivity.bucket.get(key));
         }
         final StableArrayAdapter adapter = new StableArrayAdapter(this.getContext(),
                 android.R.layout.simple_list_item_1, list);
@@ -80,18 +85,23 @@ public class ChoreBucketFragment extends RoboFragment {
 
                 Toast.makeText(getActivity().getApplicationContext(), item + " added to your chores", Toast.LENGTH_SHORT).show();
 
+                MainActivity.michael.toDoList.put(item.toString(), item);
+                MainActivity.michael.toDO++;
+                MainActivity.bucket.remove(item);
+
+
             }
 
         });
 
 
     }
-    private class StableArrayAdapter extends ArrayAdapter<String> {
+    private class StableArrayAdapter extends ArrayAdapter<Object> {
 
-        HashMap<String, Integer> mIdMap = new HashMap<String, Integer>();
+        HashMap<Object, Integer> mIdMap = new HashMap<Object, Integer>();
 
         public StableArrayAdapter(Context context, int textViewResourceId,
-                                  List<String> objects) {
+                                  List<Object> objects) {
             super(context, textViewResourceId, objects);
             for (int i = 0; i < objects.size(); ++i) {
                 mIdMap.put(objects.get(i), i);
@@ -100,7 +110,7 @@ public class ChoreBucketFragment extends RoboFragment {
 
         @Override
         public long getItemId(int position) {
-            String item = getItem(position);
+            Object item = getItem(position);
             return mIdMap.get(item);
         }
 
@@ -110,5 +120,4 @@ public class ChoreBucketFragment extends RoboFragment {
         }
 
     }
-
 }

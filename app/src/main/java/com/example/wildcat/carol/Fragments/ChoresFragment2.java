@@ -14,6 +14,8 @@ import roboguice.fragment.RoboFragment;
  */
 public class ChoresFragment2 extends RoboFragment {
 
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -9,13 +9,14 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="April"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="70dp"
         android:textSize="25dp"
         android:id="@+id/progressTitle"
         android:layout_gravity="center_horizontal" />
 
     <com.github.mikephil.charting.charts.HorizontalBarChart
         android:id="@+id/chart"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="300dp" />
 

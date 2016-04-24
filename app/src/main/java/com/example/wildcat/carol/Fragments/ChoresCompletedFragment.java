@@ -9,11 +9,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.wildcat.carol.Activities.MainActivity;
 import com.example.wildcat.carol.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 import roboguice.fragment.RoboFragment;
 
@@ -51,9 +53,14 @@ public class ChoresCompletedFragment extends RoboFragment {
 
         String[] values = new String[] { "Mow Lawn"  };
 
-        final ArrayList<String> list = new ArrayList<String>();
-        for (int i = 0; i < values.length; ++i) {
-            list.add(values[i]);
+        final ArrayList<Object> list = new ArrayList<Object>();
+//        for (int i = 0; i < values.length; ++i) {
+//            list.add(values[i]);
+//        }
+
+        Set<String> keys = MainActivity.michael.completedList.keySet();
+        for(String key: keys){
+            list.add(MainActivity.michael.completedList.get(key));
         }
         final StableArrayAdapter adapter = new StableArrayAdapter(this.getContext(),
                 android.R.layout.simple_list_item_1, list);
@@ -74,18 +81,19 @@ public class ChoresCompletedFragment extends RoboFragment {
                                 view.setAlpha(1);
                             }
                         });
+
             }
 
         });
 
 
     }
-    private class StableArrayAdapter extends ArrayAdapter<String> {
+    private class StableArrayAdapter extends ArrayAdapter<Object> {
 
-        HashMap<String, Integer> mIdMap = new HashMap<String, Integer>();
+        HashMap<Object, Integer> mIdMap = new HashMap<Object, Integer>();
 
         public StableArrayAdapter(Context context, int textViewResourceId,
-                                  List<String> objects) {
+                                  List<Object> objects) {
             super(context, textViewResourceId, objects);
             for (int i = 0; i < objects.size(); ++i) {
                 mIdMap.put(objects.get(i), i);
@@ -94,7 +102,7 @@ public class ChoresCompletedFragment extends RoboFragment {
 
         @Override
         public long getItemId(int position) {
-            String item = getItem(position);
+            Object item = getItem(position);
             return mIdMap.get(item);
         }
 

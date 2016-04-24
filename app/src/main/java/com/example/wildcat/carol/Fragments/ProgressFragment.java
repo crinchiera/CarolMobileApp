@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.graphics.Color;
 import android.widget.LinearLayout;
 
+import com.example.wildcat.carol.Activities.MainActivity;
 import com.example.wildcat.carol.R;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.BarChart;
@@ -53,11 +54,11 @@ public class ProgressFragment extends RoboFragment {
         super.onActivityCreated(savedInstanceState);
 
         ArrayList<BarEntry> entries = new ArrayList<>();
-        entries.add(new BarEntry(4f, 0));
-        entries.add(new BarEntry(8f, 1));
-        entries.add(new BarEntry(6f, 2));
-        entries.add(new BarEntry(12f, 3));
-        entries.add(new BarEntry(18f, 4));
+        entries.add(new BarEntry(MainActivity.michael.coins, 0));
+        entries.add(new BarEntry(MainActivity.danny.coins, 1));
+        entries.add(new BarEntry(MainActivity.jeff.coins, 2));
+        entries.add(new BarEntry(MainActivity.jeremy.coins, 3));
+        entries.add(new BarEntry(MainActivity.matt.coins, 4));
 
         BarDataSet dataset = new BarDataSet(entries, "Coins");
 

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.wildcat.carol.Activities.MainActivity;
 import com.example.wildcat.carol.R;
 import com.mingle.sweetpick.RecyclerViewDelegate;
 import com.mingle.sweetpick.SweetSheet;
@@ -23,6 +24,9 @@ public class ChoresFragment extends RoboFragment {
     TextView choresToDo;
     @InjectView(R.id.chores_completed_textview)
     TextView choresCompleted;
+    @InjectView(R.id.coinTextView) TextView coinTextView;
+
+    String michaelToDo, michaelCompleted, coins;
 
 
     private SweetSheet mSweetSheet;
@@ -40,6 +44,7 @@ public class ChoresFragment extends RoboFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance) {
 
         View view = inflater.inflate(R.layout.chores_fragment, container, false);
+
 
 
 
@@ -76,6 +81,16 @@ public class ChoresFragment extends RoboFragment {
                 fragmentTransaction.commit();
             }
         });
+
+        michaelToDo = Integer.toString(MainActivity.michael.toDO);
+        michaelCompleted = Integer.toString(MainActivity.michael.completed);
+        coins = Integer.toString(MainActivity.michael.coins);
+
+        choresToDo.setText(michaelToDo);
+        choresCompleted.setText(michaelCompleted);
+        coinTextView.setText(coins);
+
+
     }
 
 }
