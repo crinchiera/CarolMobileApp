@@ -31,34 +31,11 @@ import roboguice.inject.ContentView;
  */
 public class ProgressFragment extends RoboFragment {
 
+    @InjectView(R.id.chart) BarChart barChart;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        BarChart barChart = (BarChart) getView().findViewById(R.id.chart);
-
-        ArrayList<BarEntry> entries = new ArrayList<>();
-        entries.add(new BarEntry(4f, 0));
-        entries.add(new BarEntry(8f, 1));
-        entries.add(new BarEntry(6f, 2));
-        entries.add(new BarEntry(12f, 3));
-        entries.add(new BarEntry(18f, 4));
-        entries.add(new BarEntry(9f, 5));
-
-        BarDataSet dataset = new BarDataSet(entries, "# of Calls");
-
-        ArrayList<String> labels = new ArrayList<String>();
-        labels.add("User1");
-        labels.add("User2");
-        labels.add("User3");
-        labels.add("User4");
-        labels.add("User5");
-        labels.add("User6");
-
-        BarData data = new BarData(labels, dataset);
-        barChart.setData(data); // set the data and list of lables into chart
-
-        barChart.setDescription("Housemate Contributions");  // set the description
     }
 
     @Override
@@ -69,6 +46,32 @@ public class ProgressFragment extends RoboFragment {
 
 
         return view;
+    }
+
+    public void onActivityCreated(Bundle savedInstanceState) {
+        // TODO Auto-generated method stub
+        super.onActivityCreated(savedInstanceState);
+
+        ArrayList<BarEntry> entries = new ArrayList<>();
+        entries.add(new BarEntry(4f, 0));
+        entries.add(new BarEntry(8f, 1));
+        entries.add(new BarEntry(6f, 2));
+        entries.add(new BarEntry(12f, 3));
+        entries.add(new BarEntry(18f, 4));
+
+        BarDataSet dataset = new BarDataSet(entries, "Coins");
+
+        ArrayList<String> labels = new ArrayList<String>();
+        labels.add("Michael");
+        labels.add("Danny");
+        labels.add("Jeff");
+        labels.add("Jeremy");
+        labels.add("Matt");
+
+        BarData data = new BarData(labels, dataset);
+        barChart.setData(data); // set the data and list of lables into chart
+
+        barChart.setDescription("Housemate Contributions");  // set the description
     }
 
 
