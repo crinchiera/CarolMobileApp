@@ -99,6 +99,7 @@ public class ChoresToDoFragment extends RoboFragment {
                 MainActivity.michael.completed++;
                 MainActivity.michael.toDO--;
                 MainActivity.michael.toDoList.remove(item);
+                MainActivity.bucket.put(item.toString(), item);
 
                 if(item.toString() == "Take Out Trash"){
                     MainActivity.michael.coins += 2;
@@ -107,7 +108,7 @@ public class ChoresToDoFragment extends RoboFragment {
                     MainActivity.michael.coins += 4;
                 }
                 if(item.toString() == "Clean Bathroom"){
-                    MainActivity.michael.coins += 10;
+                    MainActivity.michael.coins += 9;
                 }
                 if(item.toString() == "Clean Living Room"){
                     MainActivity.michael.coins += 6;

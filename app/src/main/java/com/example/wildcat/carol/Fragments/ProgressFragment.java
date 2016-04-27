@@ -73,6 +73,7 @@ public class ProgressFragment extends RoboFragment {
         barChart.setData(data); // set the data and list of lables into chart
 
         barChart.setDescription("Housemate Contributions");  // set the description
+        barChart.setDrawingCacheBackgroundColor(Color.parseColor("#73BD44"));
     }
 
 

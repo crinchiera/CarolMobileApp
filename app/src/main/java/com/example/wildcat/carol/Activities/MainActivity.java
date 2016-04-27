@@ -101,7 +101,7 @@ public class MainActivity extends RoboActionBarActivity
         danny.coins = 0;
 
         bucket.put("Take Out Trash", "Take Out Trash");
-        bucket.put("Clean Dishes", "Clean Dishes");
+        bucket.put("Do Dishes", "Do Dishes");
         bucket.put("Clean Living Room", "Clean Living Room");
         bucket.put("Clean Kitchen", "Clean Kitchen");
         bucket.put("Clean Bathroom", "Clean Bathroom");

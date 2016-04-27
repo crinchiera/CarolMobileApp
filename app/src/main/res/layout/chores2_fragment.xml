@@ -146,7 +146,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="2"
+                android:text="15"
                 android:id="@+id/textView"
                 android:layout_alignTop="@+id/imageView7"
                 android:layout_centerHorizontal="true"

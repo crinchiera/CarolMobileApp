@@ -8,11 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.wildcat.carol.Activities.MainActivity;
-import com.example.wildcat.carol.Models.UserProfile;
+import com.example.wildcat.carol.Adapters.ChoreBucketAdapter;
 import com.example.wildcat.carol.R;
 
 import java.util.ArrayList;
@@ -20,16 +22,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
-import javax.inject.Inject;
-
 import roboguice.fragment.RoboFragment;
 
 /**
  * Created by Wildcat on 4/23/2016.
  */
-public class ChoreBucketFragment extends RoboFragment {
+public class ChoreBucketFragment extends ListFragment {
 
     ListView listview;
+    TextView coin;
 
 
     @Override
@@ -43,7 +44,7 @@ public class ChoreBucketFragment extends RoboFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance) {
 
-        View view = inflater.inflate(R.layout.rowlayout, container, false);
+        View view = inflater.inflate(R.layout.chore_bucket_fragment, container, false);
 
 
         return view;
@@ -53,9 +54,13 @@ public class ChoreBucketFragment extends RoboFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onActivityCreated(savedInstanceState);
+
+
         // get the button view
         // set a onclick listener for when the button gets clicked
-        listview = (ListView) getActivity().findViewById(R.id.list);
+        listview = (ListView) getActivity().findViewById(android.R.id.list);
+
+
 
 
         final ArrayList<Object> list = new ArrayList<Object>();
@@ -63,8 +68,8 @@ public class ChoreBucketFragment extends RoboFragment {
         for(String key: keys){
             list.add(MainActivity.bucket.get(key));
         }
-        final StableArrayAdapter adapter = new StableArrayAdapter(this.getContext(),
-                android.R.layout.simple_list_item_1, list);
+        final ChoreBucketAdapter adapter = new ChoreBucketAdapter(this.getContext(),
+                list);
         listview.setAdapter(adapter);
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
