@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.wildcat.carol.Activities.MainActivity;
+import com.example.wildcat.carol.Adapters.ChoreBucketAdapter;
 import com.example.wildcat.carol.Models.UserProfile;
 import com.example.wildcat.carol.R;
 
@@ -71,8 +72,8 @@ public class ChoresToDoFragment extends RoboFragment {
             list.add(MainActivity.michael.toDoList.get(key));
         }
 
-        final StableArrayAdapter adapter = new StableArrayAdapter(this.getContext(),
-                android.R.layout.simple_list_item_1, list);
+        final ChoreBucketAdapter adapter = new ChoreBucketAdapter(this.getContext(),
+                list);
         listview.setAdapter(adapter);
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {

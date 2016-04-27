@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.wildcat.carol.Activities.MainActivity;
+import com.example.wildcat.carol.Adapters.ChoreBucketAdapter;
 import com.example.wildcat.carol.R;
 
 import java.util.ArrayList;
@@ -62,8 +63,8 @@ public class ChoresCompletedFragment extends RoboFragment {
         for(String key: keys){
             list.add(MainActivity.michael.completedList.get(key));
         }
-        final StableArrayAdapter adapter = new StableArrayAdapter(this.getContext(),
-                android.R.layout.simple_list_item_1, list);
+        final ChoreBucketAdapter adapter = new ChoreBucketAdapter(this.getContext(),
+                list);
         listview.setAdapter(adapter);
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
